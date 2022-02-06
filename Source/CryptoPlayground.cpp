@@ -34,6 +34,8 @@ namespace CryptoPlayground{
 
         setInstance();
 
+        m_Spreadsheet = std::make_shared<API::Spreadsheet>();
+
     }
 
     CryptoPlaygroundApp::~CryptoPlaygroundApp() {
@@ -42,11 +44,7 @@ namespace CryptoPlayground{
 
     int CryptoPlaygroundApp::run() {
 
-        std::cout << "I run!" << std::endl;
-
-        API::Spreadsheet::sayHi();
-
-        return 1;
+        return 0;
 
     }
 

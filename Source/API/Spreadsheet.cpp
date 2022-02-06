@@ -23,11 +23,26 @@
 
 namespace CryptoPlayground::API{
 
-    void Spreadsheet::sayHi(){
 
-        std::cout << "Hi from Spreadsheet!" << std::endl;
+    Spreadsheet::Spreadsheet(std::string name, const Spreadsheet::Dimensions& dimensions) : m_Name(std::move(name)), m_Dimensions(dimensions){
 
-        std::cout << "State from Application: " << CryptoPlaygroundApp::get().f << std::endl;
+    }
+
+    Spreadsheet::Spreadsheet(const Spreadsheet &other) {
+
+
+
+    }
+
+
+    Spreadsheet& Spreadsheet::operator=(Spreadsheet other){
+
+        swap(other);
+
+        return *this;
+    }
+
+    void Spreadsheet::swap(Spreadsheet &other) {
 
     }
 

@@ -20,12 +20,63 @@
 #ifndef CRYPTO_PLAYGROUND_SPREADSHEET_HPP
 #define CRYPTO_PLAYGROUND_SPREADSHEET_HPP
 
+#include <cstdint>
+#include <iostream>
+#include <string>
+
 namespace CryptoPlayground::API{
 
-    class Spreadsheet{
-
+    class CellData{
     public:
-        static void sayHi();
+        CellData();
+        virtual ~CellData();
+
+
+
+        virtual std::ostream& operator<<(std::ostream& out) { out << ""; return out; };
+
+    };
+
+    class Cell{
+    public:
+        Cell(std::shared_ptr<CellData> data);
+        ~Cell();
+    private:
+        std::shared_ptr<CellData> data;
+    };
+
+    /**
+     * Is a column major spreadsheet.
+     */
+    class Spreadsheet{
+    public:
+        struct Dimensions{
+        public:
+            union{
+                struct{
+                    size_t x;
+                    size_t y;
+                };
+                struct{
+                    size_t u;
+                    size_t v;
+                };
+                struct{
+                    size_t rows;
+                    size_t columns;
+                };
+            };
+        };
+
+        Spreadsheet(std::string name = "Untitled Sheet", const Dimensions& dimensions = {1,1});
+        Spreadsheet(const Spreadsheet& other);
+
+        Spreadsheet& operator=(Spreadsheet other);
+        void swap(Spreadsheet& other);
+
+    private:
+        std::string m_Name;
+        Dimensions m_Dimensions;
 
     };
 
