@@ -23,9 +23,6 @@ namespace CryptoPlayground::API{
 
     BigDecimal::BigDecimal() {
 
-        m_Ones.push_back(0);
-        m_Decimal.push_back(0);
-
     }
 
     BigDecimal::BigDecimal(double value) {
@@ -33,21 +30,6 @@ namespace CryptoPlayground::API{
         std::ostringstream oss;
         oss << value;
         std::string str = oss.str();
-
-        size_t decimal  = str.find('.');
-        m_Ones.reserve(decimal);
-        m_Decimal.reserve(str.length()-decimal);
-
-        for(char currentChar:str){
-            if(currentChar == '.') break;
-            char currentCharNullTerm[2] = {currentChar,'\0'};
-            m_Ones.insert(m_Ones.begin(), std::stoi(currentCharNullTerm));
-        }
-
-        for(size_t i=decimal+1;i<str.length(); ++i){
-            char currentCharNullTerm[2] = {str[i],'\0'};
-            m_Ones.push_back(std::stoi(currentCharNullTerm));
-        }
 
     }
 
@@ -85,6 +67,12 @@ namespace CryptoPlayground::API{
     }
 
     void BigDecimal::swap(BigDecimal &other) {
+
+    }
+
+    void BigDecimal::set(const std::string& stringNumber) {
+
+        m_DecimalPosition = stringNumber.find('.');
 
     }
 }

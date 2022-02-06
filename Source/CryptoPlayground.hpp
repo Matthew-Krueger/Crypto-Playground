@@ -31,7 +31,7 @@ namespace CryptoPlayground{
         CryptoPlaygroundApp();
         ~CryptoPlaygroundApp() override;
 
-        virtual int run() override;
+        int run() override;
 
         inline static CryptoPlaygroundApp& get() {return *(CryptoPlaygroundApp*)s_Instance; };
 

@@ -42,12 +42,12 @@ namespace CryptoPlayground::API{
         void swap(BigDecimal& other);
 
     private:
+        void set(const std::string& stringNumber);
 
-        /*
-         * Arrays are little endian. going out from decimal point
-         */
-        std::vector<unsigned char> m_Ones;
-        std::vector<unsigned char> m_Decimal;
+        std::vector<unsigned char> m_Data;
+        size_t m_DecimalPosition = 0;
+        bool m_HasDecimal = false;
+
     };
 
 }
