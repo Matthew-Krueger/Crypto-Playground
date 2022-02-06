@@ -17,3 +17,30 @@
  */
 
 #include "CryptoPlayground.hpp"
+
+#define APP_FW_INCLUDE_MAIN
+#include "AppFramework/MainCreator.hpp"
+
+AppFramework::Application* AppFramework::createApplication(){
+
+    return new CryptoPlayground::CryptoPlaygroundApp();
+
+}
+
+namespace CryptoPlayground{
+
+    CryptoPlaygroundApp::CryptoPlaygroundApp() {
+
+    }
+
+    CryptoPlaygroundApp::~CryptoPlaygroundApp() {
+
+    }
+
+    int CryptoPlaygroundApp::run() {
+
+        std::cout << "I run!" << std::endl;
+        return 0;
+    }
+
+}

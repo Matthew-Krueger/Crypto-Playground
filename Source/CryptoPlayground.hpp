@@ -19,9 +19,18 @@
 #ifndef CRYPTO_PLAYGROUND_CRYPTOPLAYGROUND_HPP
 #define CRYPTO_PLAYGROUND_CRYPTOPLAYGROUND_HPP
 
+#include <AppFramework/AppFramework.hpp>
+
 namespace CryptoPlayground{
 
-    class Application
+    class CryptoPlaygroundApp : public AppFramework::Application{
+    public:
+        CryptoPlaygroundApp();
+        ~CryptoPlaygroundApp() override;
+
+        virtual int run() override;
+
+    };
 
 }
 

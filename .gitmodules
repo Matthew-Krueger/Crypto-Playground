@@ -1,0 +1,3 @@
+[submodule "Dependencies/Application-Framework"]
+	path = Dependencies/Application-Framework
+	url = https://github.com/Matthew-Krueger/Application-Framework.git
