@@ -16,38 +16,19 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "CryptoPlayground.hpp"
 
-#define APP_FW_INCLUDE_MAIN
-#include "AppFramework/MainCreator.hpp"
-#include "API/Spreadsheet.hpp"
+#ifndef CRYPTO_PLAYGROUND_SPREADSHEET_HPP
+#define CRYPTO_PLAYGROUND_SPREADSHEET_HPP
 
-AppFramework::Application* AppFramework::createApplication(){
+namespace CryptoPlayground::API{
 
-    return new CryptoPlayground::CryptoPlaygroundApp();
+    class Spreadsheet{
 
-}
+    public:
+        static void sayHi();
 
-namespace CryptoPlayground{
-
-    CryptoPlaygroundApp::CryptoPlaygroundApp() {
-
-        setInstance();
-
-    }
-
-    CryptoPlaygroundApp::~CryptoPlaygroundApp() {
-
-    }
-
-    int CryptoPlaygroundApp::run() {
-
-        std::cout << "I run!" << std::endl;
-
-        API::Spreadsheet::sayHi();
-
-        return 1;
-
-    }
+    };
 
 }
+
+#endif //CRYPTO_PLAYGROUND_SPREADSHEET_HPP

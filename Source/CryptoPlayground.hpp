@@ -21,6 +21,7 @@
 
 #include <AppFramework/AppFramework.hpp>
 
+#include <string>
 namespace CryptoPlayground{
 
     class CryptoPlaygroundApp : public AppFramework::Application{
@@ -30,6 +31,9 @@ namespace CryptoPlayground{
 
         virtual int run() override;
 
+        inline static CryptoPlaygroundApp& get() override {return *(CryptoPlaygroundApp*)s_Instance; };
+
+        std::string f = "WTF";
     };
 
 }
