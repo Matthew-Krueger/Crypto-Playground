@@ -31,6 +31,8 @@ namespace CryptoPlayground{
 
     CryptoPlaygroundApp::CryptoPlaygroundApp() {
 
+        setInstance();
+
     }
 
     CryptoPlaygroundApp::~CryptoPlaygroundApp() {
@@ -40,7 +42,10 @@ namespace CryptoPlayground{
     int CryptoPlaygroundApp::run() {
 
         std::cout << "I run!" << std::endl;
-        return 0;
+
+
+        return 1;
+
     }
 
 }
